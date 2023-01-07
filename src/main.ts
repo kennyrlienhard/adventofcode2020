@@ -1,8 +1,9 @@
 import { dayOne } from './day01';
 import { dayTwo } from './day02';
 import { dayThree } from './day03';
+import { dayFour } from './day04';
 
-const PUZZLES = [dayOne, dayTwo, dayThree];
+const PUZZLES = [dayOne, dayTwo, dayThree, dayFour];
 
 function printResult(day: number, answers: number[]) {
   const printPartial = (acc: string, part: number, partIndex: number) => `${acc}Part ${partIndex + 1}: ${part}, `;
@@ -16,4 +17,4 @@ async function solvePuzzles(puzzlesToSolve: number[]) {
   results.forEach((answers, index) => printResult(puzzles[index].day, answers));
 }
 
-solvePuzzles([3]);
+solvePuzzles([4]);

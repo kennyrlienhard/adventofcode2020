@@ -14,6 +14,7 @@ import { dayThirteen } from './day13';
 import { dayFourteen } from './day14';
 import { dayFifteen } from './day15';
 import { daySixteen } from './day16';
+import { dayEighteen } from './day18';
 
 const PUZZLES = [
   dayOne,
@@ -32,6 +33,8 @@ const PUZZLES = [
   dayFourteen,
   dayFifteen,
   daySixteen,
+  null,
+  dayEighteen,
 ];
 
 function printResult(day: number, answers: number[]) {
@@ -46,4 +49,4 @@ async function solvePuzzles(puzzlesToSolve: number[]) {
   results.forEach((answers, index) => printResult(puzzles[index].day, answers));
 }
 
-solvePuzzles([15]);
+solvePuzzles([18]);

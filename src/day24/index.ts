@@ -80,6 +80,4 @@ async function partTwo() {
   return blackTiles.size;
 }
 
-export async function dayTwentyFour() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

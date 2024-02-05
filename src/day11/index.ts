@@ -2,11 +2,6 @@ import { loadData } from './utils';
 
 const IS_TRAINING = false;
 
-function printGrid(grid: string[][]) {
-  for (const row of grid) console.log(row.join(''));
-  console.log();
-}
-
 function getNextSeat(grid: string[][], row: number, col: number, tolerance: number, firstSeat: boolean) {
   const getSeatsToTheLeft = (x: number, y: number) => grid[x].slice(0, y + 1).reverse();
 
@@ -117,18 +112,12 @@ async function partOne() {
 async function partTwo() {
   let grid = await loadData(IS_TRAINING);
   let changes = 0;
-  // let rounds = 0;
 
   do {
     [grid, changes] = playRound(grid, 5, true);
-    // rounds += 1;
-    // console.log('Round', rounds);
-    // printGrid(grid);
   } while (changes > 0);
 
   return grid.reduce((sum, row) => sum + row.reduce((rowCount, seat) => rowCount + (seat === '#' ? 1 : 0), 0), 0);
 }
 
-export async function dayEleven() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

@@ -41,6 +41,4 @@ async function partOne() {
   return secret;
 }
 
-export async function dayTwentyFive() {
-  return Promise.all([partOne].map((puzzle) => puzzle()));
-}
+export default [partOne];

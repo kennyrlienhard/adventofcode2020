@@ -48,6 +48,4 @@ async function partTwo() {
   return play(players, false).score;
 }
 
-export async function dayTwentyTwo() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

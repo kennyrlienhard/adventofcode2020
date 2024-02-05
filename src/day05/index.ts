@@ -67,6 +67,4 @@ async function partTwo() {
   return seatIds.find((id) => !seatIds.includes(id - 1) && !seatIds.includes(id + 1));
 }
 
-export async function dayFive() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

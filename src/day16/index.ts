@@ -51,6 +51,4 @@ async function partTwo() {
   return tickets[0].filter((_, i) => departureIndexes.includes(i)).reduce((acc, val) => acc * val, 1);
 }
 
-export async function daySixteen() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

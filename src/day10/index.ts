@@ -34,6 +34,4 @@ async function partTwo() {
   return countCombinations(await loadData(IS_TRAINING));
 }
 
-export async function dayTen() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

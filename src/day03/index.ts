@@ -36,6 +36,4 @@ async function partTwo() {
     .reduce((acc, val) => acc * val, 1);
 }
 
-export async function dayThree() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

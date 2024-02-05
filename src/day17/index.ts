@@ -100,6 +100,4 @@ async function partTwo() {
   return [...cubes.values()].reduce((acc, cube) => acc + (cube[1] ? 1 : 0), 0);
 }
 
-export async function daySeventeen() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

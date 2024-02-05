@@ -38,6 +38,4 @@ async function partTwo() {
   return solve(busIds.map((id, i) => [id, i]).filter(([id]) => id !== 'x') as [number, number][]);
 }
 
-export async function dayThirteen() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

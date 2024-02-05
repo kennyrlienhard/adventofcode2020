@@ -90,6 +90,4 @@ async function partTwo() {
   return Object.keys(memory).reduce((acc, key) => acc + memory[key], 0);
 }
 
-export async function dayFourteen() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

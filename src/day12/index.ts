@@ -67,6 +67,4 @@ async function partTwo() {
   return Math.abs(ship.E) + Math.abs(ship.N);
 }
 
-export async function dayTwelve() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

@@ -1,67 +1,81 @@
-import { dayOne } from './day01';
-import { dayTwo } from './day02';
-import { dayThree } from './day03';
-import { dayFour } from './day04';
-import { dayFive } from './day05';
-import { daySix } from './day06';
-import { daySeven } from './day07';
-import { dayEight } from './day08';
-import { dayNine } from './day09';
-import { dayTen } from './day10';
-import { dayEleven } from './day11';
-import { dayTwelve } from './day12';
-import { dayThirteen } from './day13';
-import { dayFourteen } from './day14';
-import { dayFifteen } from './day15';
-import { daySixteen } from './day16';
-import { daySeventeen } from './day17';
-import { dayEighteen } from './day18';
-import { dayNineteen } from './day19';
-import { dayTwenty } from './day20';
-import { dayTwentyOne } from './day21';
-import { dayTwentyTwo } from './day22';
-import { dayTwentyThree } from './day23';
-import { dayTwentyFour } from './day24';
-import { dayTwentyFive } from './day25';
+import day01 from './day01';
+import day02 from './day02';
+import day03 from './day03';
+import day04 from './day04';
+import day05 from './day05';
+import day06 from './day06';
+import day07 from './day07';
+import day08 from './day08';
+import day09 from './day09';
+import day10 from './day10';
+import day11 from './day11';
+import day12 from './day12';
+import day13 from './day13';
+import day14 from './day14';
+import day15 from './day15';
+import day16 from './day16';
+import day17 from './day17';
+import day18 from './day18';
+import day19 from './day19';
+// import day20 from './day20';
+import day21 from './day21';
+import day22 from './day22';
+import day23 from './day23';
+import day24 from './day24';
+import day25 from './day25';
 
 const PUZZLES = [
-  dayOne,
-  dayTwo,
-  dayThree,
-  dayFour,
-  dayFive,
-  daySix,
-  daySeven,
-  dayEight,
-  dayNine,
-  dayTen,
-  dayEleven,
-  dayTwelve,
-  dayThirteen,
-  dayFourteen,
-  dayFifteen,
-  daySixteen,
-  daySeventeen,
-  dayEighteen,
-  dayNineteen,
-  dayTwenty,
-  dayTwentyOne,
-  dayTwentyTwo,
-  dayTwentyThree,
-  dayTwentyFour,
-  dayTwentyFive,
+  day01,
+  day02,
+  day03,
+  day04,
+  day05,
+  day06,
+  day07,
+  day08,
+  day09,
+  day10,
+  day11,
+  day12,
+  day13,
+  day14,
+  day15,
+  day16,
+  day17,
+  day18,
+  day19,
+  // day20,
+  day21,
+  day22,
+  day23,
+  day24,
+  day25,
 ];
 
-function printResult(day: number, answers: number[]) {
-  const printPartial = (acc: string, part: number, partIndex: number) => `${acc}Part ${partIndex + 1}: ${part}, `;
+const DAYS_TO_SOLVE = [PUZZLES.length];
 
-  console.log(`Day ${day}. ${answers.reduce(printPartial, '').slice(0, -2)}`);
+function printResult(result: { day: number; part: number; start: Date; end: Date; value: number }) {
+  console.log(`Day ${('0' + result.day).slice(-2)}. Part ${result.part}: ${result.value}`);
+  console.log(`Exucted in ${(result.end.getTime() - result.start.getTime()) / 1000}s`);
+  console.log();
 }
 
-async function solvePuzzles(puzzlesToSolve: number[]) {
-  const puzzles = puzzlesToSolve.map((day) => ({ day, solve: PUZZLES[day - 1] }));
-  const results = await Promise.all(puzzles.map((puzzle) => puzzle.solve()));
-  results.forEach((answers, index) => printResult(puzzles[index].day, answers));
+async function solvePuzzlesForDays(days: number[]) {
+  const result = (
+    await Promise.all(
+      days.map((day) =>
+        Promise.all(
+          PUZZLES[day - 1].map(async (p, i) => {
+            const start = new Date();
+            const value = await p();
+            return { day, part: i + 1, start, end: new Date(), value };
+          })
+        )
+      )
+    )
+  ).flat();
+
+  result.forEach(printResult);
 }
 
-solvePuzzles([19]);
+solvePuzzlesForDays(DAYS_TO_SOLVE);

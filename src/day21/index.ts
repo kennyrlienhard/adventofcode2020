@@ -63,6 +63,4 @@ async function partTwo() {
     .join(',');
 }
 
-export async function dayTwentyOne() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

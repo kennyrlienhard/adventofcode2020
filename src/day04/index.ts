@@ -46,6 +46,4 @@ async function partTwo() {
   return passports.filter(isExtendedValidPassport).length;
 }
 
-export async function dayFour() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

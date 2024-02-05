@@ -31,6 +31,4 @@ async function partTwo() {
   return run(30000000);
 }
 
-export async function dayFifteen() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

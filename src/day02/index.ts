@@ -23,6 +23,4 @@ async function partTwo() {
   return data.reduce((acc, pattern) => acc + (passwordPositionIsValid(pattern) ? 1 : 0), 0);
 }
 
-export async function dayTwo() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

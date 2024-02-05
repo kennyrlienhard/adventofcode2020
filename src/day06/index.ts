@@ -30,6 +30,4 @@ async function partTwo() {
   return data.map(countUniqueAnswers).reduce((acc, val) => acc + val, 0);
 }
 
-export async function daySix() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

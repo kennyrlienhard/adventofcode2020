@@ -35,6 +35,4 @@ async function partTwo() {
   return countBags(shinyGold, data);
 }
 
-export async function daySeven() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

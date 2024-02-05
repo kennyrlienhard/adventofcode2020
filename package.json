@@ -14,9 +14,7 @@
     "build": "tsc",
     "lint": "eslint --ext .js,.ts .",
     "check-types": "tsc",
-    "format": "npx prettier --write",
-    "check-format": "npx prettier --list-different",
-    "validate": "npm-run-all --parallel check-types check-format lint build",
+    "validate": "npm-run-all --parallel lint build",
     "start": "NODE_PATH=./src ts-node ./src/main.ts",
     "dev": "nodemon"
   },

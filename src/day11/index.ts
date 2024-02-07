@@ -97,13 +97,9 @@ function playRound(grid: string[][], tolerance = 4, firstSeat = false): [grid: s
 async function partOne() {
   let grid = await loadData(IS_TRAINING);
   let changes = 0;
-  // let rounds = 0;
 
   do {
     [grid, changes] = playRound(grid);
-    // rounds += 1;
-    // console.log('Round', rounds);
-    // printGrid(grid);
   } while (changes > 0);
 
   return grid.reduce((sum, row) => sum + row.reduce((rowCount, seat) => rowCount + (seat === '#' ? 1 : 0), 0), 0);

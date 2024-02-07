@@ -1,9 +1,7 @@
 import { getData } from '../utils';
 
-export type Tile = [number, string[]];
-
-export async function loadData(trainingData = false): Promise<Tile[]> {
-  const result = [];
+export async function loadData(trainingData = false): Promise<[id: number, rows: string[]][]> {
+  const result = [] as [number, string[]][];
 
   let id = 0;
   let tile = [];
